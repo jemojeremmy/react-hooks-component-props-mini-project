@@ -1,10 +1,14 @@
+// Header.test.js
 import "@testing-library/jest-dom";
 import { render, screen } from "@testing-library/react";
 import Header from "../components/Header";
+import Header from "../components/Header";
+
 
 test("renders a <header> element", () => {
-  const { container } = render(<Header />);
-  expect(container.querySelector("header")).toBeInTheDocument();
+  render(<Header name="Underreacted" />);
+  const headerElement = screen.getByRole("heading", { name: "Underreacted" });
+  expect(headerElement.tagName).toBe("H1");
 });
 
 test("renders a <h1> with the blog name", () => {
